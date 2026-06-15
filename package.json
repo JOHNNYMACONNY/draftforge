@@ -29,6 +29,7 @@
   "files": [
     "*.js",
     "docs",
+    "skills",
     "README.md",
     "CHANGELOG.md",
     "tests"

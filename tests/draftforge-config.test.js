@@ -71,7 +71,7 @@ test('top-level DraftForge init command creates onboarding config', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'draftforge-init-cli-'));
   try {
     const outPath = path.join(root, 'draftforge.config.json');
-    const result = spawnSync('node', ['scripts/draftforge/index.js', 'init', '--out', outPath], {
+    const result = spawnSync('node', ['index.js', 'init', '--out', outPath], {
       cwd: path.resolve(__dirname, '..'),
       encoding: 'utf8',
     });

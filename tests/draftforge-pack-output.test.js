@@ -97,7 +97,7 @@ test('handoff CLI creates zip from a prepared pack', async (t) => {
     fs.writeFileSync(path.join(pack, 'review.md'), '# Review\n');
     const zipPath = path.join(root, 'handoff.zip');
 
-    const result = spawnSync('node', ['scripts/draftforge/handoff.js', '--pack', pack, '--out', zipPath], {
+    const result = spawnSync('node', ['handoff.js', '--pack', pack, '--out', zipPath], {
       cwd: path.resolve(__dirname, '..'),
       encoding: 'utf8',
     });
@@ -128,7 +128,7 @@ test('top-level DraftForge CLI dispatches handoff command', async (t) => {
     fs.writeFileSync(path.join(pack, 'review.md'), '# Review\n');
     const zipPath = path.join(root, 'handoff.zip');
 
-    const result = spawnSync('node', ['scripts/draftforge/index.js', 'handoff', '--pack', pack, '--out', zipPath], {
+    const result = spawnSync('node', ['index.js', 'handoff', '--pack', pack, '--out', zipPath], {
       cwd: path.resolve(__dirname, '..'),
       encoding: 'utf8',
     });

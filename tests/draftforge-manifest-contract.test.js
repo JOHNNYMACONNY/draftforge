@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const fixturePath = path.join(__dirname, 'fixtures', 'draftforge', 'manifest-valid-local-audio.json');
+const fixturePath = path.join(__dirname, 'fixtures', 'manifest-valid-local-audio.json');
 const manifest = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
 
 const allowedAudioModes = new Set(['none', 'original', 'local', 'mix']);

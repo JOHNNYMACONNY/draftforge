@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+*.tgz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+tmp/
+tmp-*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test output
+*.log

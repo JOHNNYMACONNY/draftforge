@@ -1,4 +1,4 @@
-[![DraftForge](assets/draftforge-logo.svg)](https://github.com/JOHNNYMACONNY/draftforge)
+[![DraftForge](assets/draftforge-logo.png)](https://github.com/JOHNNYMACONNY/draftforge)
 
 # DraftForge
 

@@ -11,10 +11,7 @@ The product is usable. Config-driven onboarding works. Audio modes work. CLI is 
 ## Installation
 
 ```bash
-# Install from npm (recommended):
-npm install @jmaconny/draftforge
-
-# Or clone and run directly:
+# Clone and run from GitHub:
 git clone https://github.com/JOHNNYMACONNY/draftforge
 cd draftforge
 node index.js --help
@@ -98,7 +95,7 @@ node index.js mbs-draft \
   --allow-live-mutation
 ```
 
-Current v0.2 status: live browser execution is intentionally blocked until the adapter is deliberately wired.
+Live mutation requires explicit approval until the adapter is deliberately wired.
 
 ## Tests
 

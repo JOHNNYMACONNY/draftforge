@@ -99,6 +99,14 @@ node handoff.js \
 npm run test:draftforge
 ```
 
+## Agent Integration
+
+DraftForge can be used as a skill by Hermes or any agent system:
+
+- See [SKILL.md](SKILL.md) for integration patterns
+- Import path: clone repo and call `node index.js <action>`
+- Supports programmatic config + CLI output
+
 ## Safety Boundary
 
 - No publish mode.

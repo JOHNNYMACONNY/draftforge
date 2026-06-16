@@ -51,35 +51,9 @@ node index.js doctor --config ./draftforge.config.json
   - `review.md`
   - `preview.html`
 
-## Quick Start: Folder Source, No Audio
-
-```bash
-node index.js init --out ./draftforge.config.json
-node index.js doctor --config ./draftforge.config.json
-node index.js prepare \
-  --config ./draftforge.config.json \
-  --count 6 \
-  --out ./draftforge-pack
-```
-
-Open:
-
-```text
-./draftforge-pack/preview.html
-./draftforge-pack/review.md
-```
-
-## Manual Handoff Zip
-
-```bash
-node handoff.js \
-  --pack ./draftforge-pack \
-  --out ./draftforge-handoff.zip
-```
-
 ## Meta Business Suite Draft Assist
 
-DraftForge can save drafts to Meta Business Suite using your authenticated Chrome session.
+**DraftForge can save drafts directly to Meta Business Suite using your authenticated Chrome session.** This is the key feature - local-first creation that seamlessly integrates with your existing Meta workflow.
 
 **Prerequisites:**
 - Chrome installed (not Chromium-only)
@@ -99,6 +73,25 @@ node mbs-draft.js --manifest ./draftforge-pack/manifest.json --allow-live-mutati
 **One-time setup:** Login to Meta Business Suite when the browser opens. Your session persists via `~/.draftforge/browser-profile/`.
 
 See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for details.
+
+## Quick Start: Local Carousel Creation
+
+```bash
+node index.js init --out ./draftforge.config.json
+node index.js doctor --config ./draftforge.config.json
+node index.js prepare \
+  --config ./draftforge.config.json \
+  --count 6 \
+  --out ./draftforge-pack
+```
+
+Open `./draftforge-pack/preview.html` to review, or zip for handoff:
+
+```bash
+node handoff.js \
+  --pack ./draftforge-pack \
+  --out ./draftforge-handoff.zip
+```
 
 ## Tests
 

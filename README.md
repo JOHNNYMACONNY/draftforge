@@ -75,6 +75,10 @@ node handoff.js \
   --out ./draftforge-handoff.zip
 ```
 
+## Meta Business Suite (Workspace Extension)
+
+DraftForge supports Meta Business Suite draft creation as an optional extension. This requires workspace-specific browser automation and Meta account credentials. See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for details.
+
 ## Tests
 
 ```bash

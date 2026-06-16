@@ -75,9 +75,19 @@ node handoff.js \
   --out ./draftforge-handoff.zip
 ```
 
-## Meta Business Suite (Workspace Extension)
+## Meta Business Suite Draft Assist
 
-DraftForge supports Meta Business Suite draft creation as an optional extension. This requires workspace-specific browser automation and Meta account credentials. See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for details.
+DraftForge can save drafts to Meta Business Suite using your authenticated Chrome session.
+
+```bash
+# Validate without login
+node mbs-draft.js --manifest ./draftforge-pack/manifest.json --dry-run
+
+# Live execution (browser opens for login)
+node mbs-draft.js --manifest ./draftforge-pack/manifest.json --allow-live-mutation
+```
+
+See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for setup.
 
 ## Tests
 

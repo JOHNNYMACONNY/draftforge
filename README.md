@@ -1,5 +1,3 @@
-[![DraftForge](assets/draftforge-logo.png)](https://github.com/JOHNNYMACONNY/draftforge)
-
 # DraftForge
 
 DraftForge prepares local photos, videos, and optional music into review-ready social carousel drafts.

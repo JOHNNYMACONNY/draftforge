@@ -4,17 +4,17 @@ DraftForge prepares local photos, videos, and optional music into review-ready s
 
 It is **not** an Instagram bot. It does not publish. It does not schedule. The core workflow is local-first and works without a social login.
 
-## Status: v0.3.0
+## Status: v1.0.0
 
 The product is usable. Config-driven onboarding works. Audio modes work. CLI is stable. Meta Business Suite draft assist requires explicit approval and remains intentionally guarded.
 
 ## Installation
 
 ```bash
-# From this repo:
-npm install
+# Install from npm (recommended):
+npm install @jmaconny/draftforge
 
-# Or clone and link:
+# Or clone and run directly:
 git clone https://github.com/JOHNNYMACONNY/draftforge
 cd draftforge
 node index.js --help

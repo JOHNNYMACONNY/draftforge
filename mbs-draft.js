@@ -164,7 +164,20 @@ async function runMbsDraft(options = {}) {
   const bundle = convertManifestToBundle(manifest, packDir);
   fs.writeFileSync(bundlePath, JSON.stringify(bundle, null, 2));
 
-  // Use the existing runner entry point
+  // Execute via spawn (workspace runner or plugin)
+  const { spawnSync } = require('node:child_process');
+  const runnerPath = options.runnerPath || 
+    path.join(__dirname, 'lib', 'mbs-runner.js');
+  
+  if (!fs.existsSync(runnerPath)) {
+    return {
+      ...plan,
+      status: 'plugin-missing',
+      message: `MBS runner plugin not found at ${runnerPath}. See docs/MBS_INTEGRATION.md to implement.`,
+      bundlePath,
+    };
+  }
+  
   const runnerArgs = [
     '--bundle-path', bundlePath,
     '--asset-id', runnerConfig.assetId,
@@ -174,9 +187,7 @@ async function runMbsDraft(options = {}) {
     '--skip-browser-preflight',
   ];
 
-  // Execute via spawn
-  const { spawnSync } = require('node:child_process');
-  const runnerResult = spawnSync('node', [path.join(path.dirname(require.main?.filename || '.'), '..', 'scripts', 'instagram', 'meta-business-suite-runner.js'), ...runnerArgs], {
+  const runnerResult = spawnSync('node', [runnerPath, ...runnerArgs], {
     encoding: 'utf8',
     timeout: 300000,
   });
@@ -206,6 +217,7 @@ function parseArgs(argv) {
     else if (token === '--config') args.configPath = argv[++i];
     else if (token === '--browser-provider') args.browserProvider = argv[++i];
     else if (token === '--skip-browser-preflight') args.skipBrowserPreflight = true;
+    else if (token === '--runner-path') args.runnerPath = argv[++i];
     else if (token === '--help') args.help = true;
     else throw new Error(`Unknown argument: ${token}`);
   }

@@ -107,6 +107,28 @@ DraftForge can be used as a skill by Hermes or any agent system:
 - Import path: clone repo and call `node index.js <action>`
 - Supports programmatic config + CLI output
 
+### Understanding the Workflow
+
+The skill follows a clear 3-step flow that both agents and humans can follow:
+
+1. **Init → Doctor → Prepare → Handoff/MBS**
+   - `init` creates `draftforge.config.json` (fill in your media paths)
+   - `doctor` validates config without touching Meta
+   - `prepare` renders carousel cards to `./draftforge-pack/`
+   - `handoff` zips for manual upload OR `mbs-draft` saves to Meta
+
+2. **Meta Integration Safety**
+   - Browser opens visibly - you must see and control it
+   - One-time login required in the opened Chrome window
+   - Session persists in `~/.draftforge/browser-profile/`
+   - Only `-allow-live-mutation` triggers live Meta actions
+
+3. **Agent Automation Pattern**
+   - Read/Skim SKILL.md for available commands
+   - Run `doctor` first to verify setup
+   - Execute `prepare` to generate output
+   - Call `mbs-draft --dry-run` before live mode
+
 ## Safety Boundary
 
 - No publish mode.

@@ -79,7 +79,14 @@ node handoff.js \
 
 DraftForge can save drafts to Meta Business Suite using your authenticated Chrome session.
 
+**Prerequisites:**
+- Chrome installed (not Chromium-only)
+- `playwright-core` for browser automation
+
 ```bash
+# Install dependencies
+npm install
+
 # Validate without login
 node mbs-draft.js --manifest ./draftforge-pack/manifest.json --dry-run
 
@@ -87,7 +94,9 @@ node mbs-draft.js --manifest ./draftforge-pack/manifest.json --dry-run
 node mbs-draft.js --manifest ./draftforge-pack/manifest.json --allow-live-mutation
 ```
 
-See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for setup.
+**One-time setup:** Login to Meta Business Suite when the browser opens. Your session persists via `~/.draftforge/browser-profile/`.
+
+See [docs/MBS_INTEGRATION.md](docs/MBS_INTEGRATION.md) for details.
 
 ## Tests
 

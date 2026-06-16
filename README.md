@@ -1,12 +1,12 @@
 # DraftForge
 
-DraftForge prepares local photos, videos, and optional music into review-ready social carousel drafts, with optional guarded Meta Business Suite draft assist.
+DraftForge prepares local photos, videos, and optional music into review-ready social carousel drafts.
 
 It is **not** an Instagram bot. It does not publish. It does not schedule. The core workflow is local-first and works without a social login.
 
 ## Status: v1.0.0
 
-The product is usable. Config-driven onboarding works. Audio modes work. CLI is stable. Meta Business Suite draft assist requires explicit approval and remains intentionally guarded.
+The product is usable. Config-driven onboarding works. Audio modes work. CLI is stable.
 
 ## Installation
 
@@ -19,13 +19,11 @@ node index.js --help
 
 ## Onboarding
 
-Create a local config file with placeholders for your media, music, and Meta Business Suite draft settings:
+Create a local config file with placeholders for your media and optional music:
 
 ```bash
 node index.js init --out ./draftforge.config.json
 ```
-
-The generated config contains no account IDs, tokens, cookies, or passwords. Fill in only what you need. Meta Business Suite settings are optional unless you use guarded draft assist.
 
 Check your setup before rendering:
 
@@ -50,7 +48,6 @@ node index.js doctor --config ./draftforge.config.json
   - `caption.txt`
   - `review.md`
   - `preview.html`
-- Provides a guarded MBS draft safety shell
 
 ## Quick Start: Folder Source, No Audio
 
@@ -70,15 +67,6 @@ Open:
 ./draftforge-pack/review.md
 ```
 
-## Draft-Only MBS Safety Check
-
-```bash
-node index.js mbs-draft \
-  --manifest ./draftforge-pack/manifest.json \
-  --config ./draftforge.config.json \
-  --dry-run
-```
-
 ## Manual Handoff Zip
 
 ```bash
@@ -86,16 +74,6 @@ node handoff.js \
   --pack ./draftforge-pack \
   --out ./draftforge-handoff.zip
 ```
-
-Live mutation requires explicit approval:
-
-```bash
-node index.js mbs-draft \
-  --manifest ./draftforge-pack/manifest.json \
-  --allow-live-mutation
-```
-
-Live mutation requires explicit approval until the adapter is deliberately wired.
 
 ## Tests
 

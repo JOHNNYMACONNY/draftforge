@@ -218,6 +218,9 @@ if (require.main === module) {
     console.log('Usage: mbs-draft.js --manifest <path> [--allow-live-mutation] [--dry-run]');
     console.log('  --asset-id, --business-id, --expected-account-label: override defaults');
     console.log('  --config <path>: load onboarding config values');
+    console.log('');
+    console.log('Note: Live MBS execution requires workspace environment.');
+    console.log('Dry-run mode works standalone and validates config/manifest.');
     process.exit(0);
   }
   runMbsDraft(args)

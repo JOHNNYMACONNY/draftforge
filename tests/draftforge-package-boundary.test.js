@@ -10,7 +10,6 @@ const FORBIDDEN_PATTERNS = [
   'state/',
   'memory/',
   'node_modules/',
-  'skills/',
   'proposals/',
   '.DS_Store',
   'DraftForge/',

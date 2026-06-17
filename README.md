@@ -51,7 +51,7 @@ node index.js doctor --config ./draftforge.config.json
 
 ## Meta Business Suite Draft Assist
 
-**DraftForge can save drafts directly to Meta Business Suite using your authenticated Chrome session.** This is the key feature - local-first creation that seamlessly integrates with your existing Meta workflow.
+**DraftForge can save drafts directly to Meta Business Suite, which creates drafts for both Facebook and Instagram.** This is the key feature - local-first creation that seamlessly integrates with your existing Meta workflow.
 
 **Prerequisites:**
 - Chrome installed (not Chromium-only)

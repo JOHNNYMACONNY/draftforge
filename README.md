@@ -11,9 +11,14 @@ The product is usable. Config-driven onboarding works. Audio modes work. CLI is 
 ## Installation
 
 ```bash
-# Clone and run from GitHub:
+# Install directly from GitHub:
+npm install -g github:JOHNNYMACONNY/draftforge
+draftforge --help
+
+# Or clone and run locally:
 git clone https://github.com/JOHNNYMACONNY/draftforge
 cd draftforge
+npm install
 node index.js --help
 ```
 

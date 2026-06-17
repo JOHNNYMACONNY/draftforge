@@ -32,7 +32,9 @@
     "skills",
     "README.md",
     "CHANGELOG.md",
-    "tests"
+    "tests",
+    "lib",
+    "assets"
   ],
   "dependencies": {
     "chrome-remote-interface": "^0.34.0",

@@ -20,11 +20,11 @@ function printHelp() {
   console.log('  install-skill  Install DraftForge skill to Hermes skills dir');
   console.log('');
   console.log('Examples:');
-  console.log('  node scripts/draftforge/index.js init --out ./draftforge.config.json');
-  console.log('  node scripts/draftforge/index.js doctor --config ./draftforge.config.json');
-  console.log('  node scripts/draftforge/index.js prepare --source folder --media ./media --out ./pack');
-  console.log('  node scripts/draftforge/index.js handoff --pack ./pack --out ./draftforge-handoff.zip');
-  console.log('  node scripts/draftforge/index.js mbs-draft --manifest ./pack/manifest.json --dry-run');
+  console.log('  draftforge init --out ./draftforge.config.json');
+  console.log('  draftforge doctor --config ./draftforge.config.json');
+  console.log('  draftforge prepare --source folder --media ./media --out ./pack');
+  console.log('  draftforge handoff --pack ./pack --out ./draftforge-handoff.zip');
+  console.log('  draftforge mbs-draft --manifest ./pack/manifest.json --dry-run');
 }
 
 async function runDraftForgeCli(argv = process.argv.slice(2)) {

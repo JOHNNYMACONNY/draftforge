@@ -34,7 +34,8 @@
     "CHANGELOG.md",
     "tests",
     "lib",
-    "assets"
+    "assets",
+    "SKILL.md"
   ],
   "dependencies": {
     "chrome-remote-interface": "^0.34.0",

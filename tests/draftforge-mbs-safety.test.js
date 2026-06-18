@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
@@ -120,6 +121,23 @@ test('validateMbsConfig passes when all MBS fields present', () => {
   const result = validateMbsConfig(config, true);
   assert.equal(result.valid, true);
   assert.equal(result.status, 'ready-for-live-draft');
+});
+
+test('draftforge mbs-draft --help prints help without requiring a manifest', () => {
+  const output = execFileSync(process.execPath, [path.join(__dirname, '..', 'index.js'), 'mbs-draft', '--help'], {
+    encoding: 'utf8',
+  });
+  assert.match(output, /Usage: draftforge mbs-draft/);
+  assert.match(output, /--manifest <path>/);
+  assert.match(output, /Never publishes/);
+});
+
+test('draftforge help mbs-draft prints subcommand help', () => {
+  const output = execFileSync(process.execPath, [path.join(__dirname, '..', 'index.js'), 'help', 'mbs-draft'], {
+    encoding: 'utf8',
+  });
+  assert.match(output, /Usage: draftforge mbs-draft/);
+  assert.match(output, /--allow-live-mutation/);
 });
 
 test('runMbsDraft live mode returns missing-config when MBS fields incomplete', async () => {

@@ -218,21 +218,33 @@ function parseArgs(argv) {
     else if (token === '--browser-provider') args.browserProvider = argv[++i];
     else if (token === '--skip-browser-preflight') args.skipBrowserPreflight = true;
     else if (token === '--runner-path') args.runnerPath = argv[++i];
-    else if (token === '--help') args.help = true;
+    else if (token === '--help' || token === '-h') args.help = true;
     else throw new Error(`Unknown argument: ${token}`);
   }
   return args;
 }
 
+function printMbsDraftHelp() {
+  console.log('Usage: draftforge mbs-draft --manifest <path> [--dry-run] [--allow-live-mutation]');
+  console.log('');
+  console.log('Options:');
+  console.log('  --manifest <path>                 Path to draftforge-pack/manifest.json');
+  console.log('  --config <path>                   Load onboarding config values');
+  console.log('  --dry-run                         Validate manifest/config without touching Meta');
+  console.log('  --allow-live-mutation             Enable guarded Meta Business Suite draft creation');
+  console.log('  --asset-id <id>                   Override config/env Instagram asset ID');
+  console.log('  --business-id <id>                Override config/env Meta business ID');
+  console.log('  --expected-account-label <label>  Verify the visible Meta account label');
+  console.log('  --skip-browser-preflight          Skip browser preflight checks');
+  console.log('  --runner-path <path>              Use a custom MBS runner script');
+  console.log('');
+  console.log('Safety: draft-only. Never publishes, schedules, boosts, or handles payment/account recovery.');
+}
+
 if (require.main === module) {
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
-    console.log('Usage: mbs-draft.js --manifest <path> [--allow-live-mutation] [--dry-run]');
-    console.log('  --asset-id, --business-id, --expected-account-label: override defaults');
-    console.log('  --config <path>: load onboarding config values');
-    console.log('');
-    console.log('Note: Live MBS execution requires workspace environment.');
-    console.log('Dry-run mode works standalone and validates config/manifest.');
+    printMbsDraftHelp();
     process.exit(0);
   }
   runMbsDraft(args)
@@ -250,6 +262,7 @@ module.exports = {
   convertManifestToBundle,
   loadManifest,
   parseArgs,
+  printMbsDraftHelp,
   runMbsDraft,
   validateDraftManifest,
   validateMbsConfig,

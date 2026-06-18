@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { prepareDraftPack, parseArgs: parsePrepareArgs } = require('./prepare');
 const { createHandoff, parseArgs: parseHandoffArgs } = require('./handoff');
-const { runMbsDraft, parseArgs: parseMbsDraftArgs } = require('./mbs-draft');
+const { runMbsDraft, parseArgs: parseMbsDraftArgs, printMbsDraftHelp } = require('./mbs-draft');
 const { initConfig, parseArgs: parseConfigArgs } = require('./config');
 const { runDoctor, parseArgs: parseDoctorArgs } = require('./doctor');
 const { installSkillToHermes, parseArgs: parseInstallSkillArgs } = require('./install-skill');
@@ -29,12 +29,23 @@ function printHelp() {
 
 async function runDraftForgeCli(argv = process.argv.slice(2)) {
   const [command, ...rest] = argv;
-  if (!command || command === '--help' || command === 'help') {
+  if (!command || command === '--help' || command === '-h' || (command === 'help' && rest.length === 0)) {
     printHelp();
     return { command: 'help', result: { status: 'ok' } };
   }
+
+  if (command === 'help' && rest[0] === 'mbs-draft') {
+    printMbsDraftHelp();
+    return { command: 'mbs-draft-help', result: { status: 'ok' } };
+  }
+
   if (!COMMANDS.has(command)) {
     throw new Error(`Unknown DraftForge command: ${command}`);
+  }
+
+  if (command === 'mbs-draft' && (rest.includes('--help') || rest.includes('-h'))) {
+    printMbsDraftHelp();
+    return { command: 'mbs-draft-help', result: { status: 'ok' } };
   }
 
   if (command === 'init') {
@@ -65,7 +76,7 @@ async function runDraftForgeCli(argv = process.argv.slice(2)) {
 if (require.main === module) {
   runDraftForgeCli()
     .then((payload) => {
-      if (payload.command !== 'help') console.log(JSON.stringify(payload, null, 2));
+      if (!payload.command.endsWith('help')) console.log(JSON.stringify(payload, null, 2));
     })
     .catch((error) => {
       console.error(error.stack || error.message || String(error));

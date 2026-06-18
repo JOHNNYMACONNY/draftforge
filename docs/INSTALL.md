@@ -25,9 +25,9 @@ ffprobe -version
 Folder mode does not need Apple Photos permissions or social login.
 
 ```bash
-node scripts/draftforge/index.js init --out ./draftforge.config.json
-node scripts/draftforge/index.js doctor --config ./draftforge.config.json
-node scripts/draftforge/index.js prepare --config ./draftforge.config.json --out ./draftforge-pack
+node index.js init --out ./draftforge.config.json
+node index.js doctor --config ./draftforge.config.json
+node index.js prepare --config ./draftforge.config.json --out ./draftforge-pack
 ```
 
 ## Setup Doctor
@@ -35,7 +35,7 @@ node scripts/draftforge/index.js prepare --config ./draftforge.config.json --out
 Run diagnostics any time setup changes:
 
 ```bash
-node scripts/draftforge/index.js doctor --config ./draftforge.config.json
+node index.js doctor --config ./draftforge.config.json
 ```
 
 `fail` means core rendering is blocked. `warn` means optional setup is incomplete but local prepare/handoff may still work.
@@ -57,7 +57,7 @@ Then allow the relevant terminal/Node process to control Photos.
 MBS mode is optional and draft-only. It requires a prepared manifest and explicit live mutation approval.
 
 ```bash
-node scripts/draftforge/index.js mbs-draft --manifest ./draftforge-pack/manifest.json --config ./draftforge.config.json --dry-run
+node index.js mbs-draft --manifest ./draftforge-pack/manifest.json --config ./draftforge.config.json --dry-run
 ```
 
-Do not use live mode until the adapter is wired and reviewed.
+Use live mode only after a successful dry run and manual review of the opened browser session.

@@ -3,8 +3,8 @@
 ## Onboarding Config
 
 ```bash
-node scripts/draftforge/index.js init --out ./draftforge.config.json
-node scripts/draftforge/index.js doctor --config ./draftforge.config.json
+node index.js init --out ./draftforge.config.json
+node index.js doctor --config ./draftforge.config.json
 ```
 
 ## Folder Source, No Audio
@@ -12,7 +12,7 @@ node scripts/draftforge/index.js doctor --config ./draftforge.config.json
 After editing `draftforge.config.json`:
 
 ```bash
-node scripts/draftforge/index.js prepare \
+node index.js prepare \
   --config ./draftforge.config.json \
   --count 6 \
   --out ./draftforge-pack
@@ -21,7 +21,7 @@ node scripts/draftforge/index.js prepare \
 You can still override config values from the CLI:
 
 ```bash
-node scripts/draftforge/index.js prepare \
+node index.js prepare \
   --source folder \
   --media ./media \
   --audio none \
@@ -32,7 +32,7 @@ node scripts/draftforge/index.js prepare \
 ## Folder Source, Local Audio
 
 ```bash
-node scripts/draftforge/index.js prepare \
+node index.js prepare \
   --source folder \
   --media ./media \
   --music ./music \
@@ -44,7 +44,7 @@ node scripts/draftforge/index.js prepare \
 ## Apple Photos Albums
 
 ```bash
-node scripts/draftforge/index.js prepare \
+node index.js prepare \
   --source photos \
   --albums Gram_Lab,Gram_Aura,Gram_Studio \
   --audio none \
@@ -62,7 +62,7 @@ cat ./draftforge-pack/review.md
 ## MBS Draft Safety Dry Run
 
 ```bash
-node scripts/draftforge/index.js mbs-draft \
+node index.js mbs-draft \
   --manifest ./draftforge-pack/manifest.json \
   --config ./draftforge.config.json \
   --dry-run

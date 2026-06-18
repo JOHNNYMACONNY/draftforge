@@ -24,7 +24,7 @@ Use this workflow when a user asks an agent to create a social carousel draft fr
 ## Example: Folder, No Audio
 
 ```bash
-node scripts/draftforge/prepare.js \
+node index.js prepare \
   --source folder \
   --media ./media \
   --audio none \
@@ -35,7 +35,7 @@ node scripts/draftforge/prepare.js \
 ## Example: Folder, Local Audio
 
 ```bash
-node scripts/draftforge/prepare.js \
+node index.js prepare \
   --source folder \
   --media ./media \
   --music ./music \
@@ -47,7 +47,7 @@ node scripts/draftforge/prepare.js \
 ## Example: Manual Handoff Zip
 
 ```bash
-node scripts/draftforge/index.js handoff \
+node index.js handoff \
   --pack ./draftforge-pack \
   --out ./draftforge-handoff.zip
 ```
@@ -59,13 +59,13 @@ Use this when the user wants a review/share/upload packet but has not asked for 
 Dry run:
 
 ```bash
-node scripts/draftforge/mbs-draft.js --manifest ./draftforge-pack/manifest.json --dry-run
+node index.js mbs-draft --manifest ./draftforge-pack/manifest.json --dry-run
 ```
 
 Live mutation gate:
 
 ```bash
-node scripts/draftforge/mbs-draft.js \
+node index.js mbs-draft \
   --manifest ./draftforge-pack/manifest.json \
   --allow-live-mutation
 ```

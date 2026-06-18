@@ -1,8 +1,19 @@
 # DraftForge
 
-DraftForge prepares local photos, videos, and optional music into review-ready social carousel drafts.
+DraftForge turns local photos, videos, and optional music into review-ready Instagram/Facebook carousel draft packs.
 
-It is **not** an Instagram bot. It does not publish. It does not schedule. The core workflow is local-first and works without a social login.
+It renders vertical social cards, creates a manifest/caption/review bundle, and can hand the draft into Meta Business Suite for final review.
+
+It is **not** an Instagram bot. It does not publish. It does not schedule. The workflow is local-first, draft-only, and safe to run without a social login until you explicitly use Meta Business Suite draft assist.
+
+## Why DraftForge
+
+Social draft workflows usually break in one of two places:
+
+- media lives locally, but posting tools expect manual uploads
+- automation tools want publishing access before the draft is ready
+
+DraftForge stays in the safe middle. It prepares the pack locally, gives you review files, and only uses Meta Business Suite when you explicitly ask it to create a draft.
 
 ## Status: v1.0.0
 
@@ -56,7 +67,7 @@ node index.js doctor --config ./draftforge.config.json
 
 ## Meta Business Suite Draft Assist
 
-**DraftForge can save drafts directly to Meta Business Suite, which creates drafts for both Facebook and Instagram.** This is the key feature - local-first creation that seamlessly integrates with your existing Meta workflow.
+**DraftForge can save drafts directly to Meta Business Suite, creating draft posts for Facebook/Instagram review without publishing.** This is the key feature: local-first creation with a guarded handoff into your existing Meta workflow.
 
 **Prerequisites:**
 - Chrome installed (not Chromium-only)
@@ -124,7 +135,7 @@ The skill follows a clear 3-step flow that both agents and humans can follow:
    - Browser opens visibly - you must see and control it
    - One-time login required in the opened Chrome window
    - Session persists in `~/.draftforge/browser-profile/`
-   - Only `-allow-live-mutation` triggers live Meta actions
+   - Only `--allow-live-mutation` triggers live Meta actions
 
 3. **Agent Automation Pattern**
    - Read/Skim SKILL.md for available commands
